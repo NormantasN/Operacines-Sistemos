@@ -1,6 +1,13 @@
-public class Main {
+import rm.*;
+import vm.*;
 
-  public static void main(String[] args) {
-    System.out.println("*** Reali ir virtuali mašina ***");
-  }
+
+public class Main {
+    public static void main(String[] args) {
+        RM.getInstance();
+
+        VM vm = new VM();
+        System.out.println("VM inicializuota");
+        vm.Execute("src/HDD.txt");
+    }
 }
