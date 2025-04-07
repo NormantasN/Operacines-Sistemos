@@ -100,6 +100,10 @@ public class Channel {
     }
   }
 
+  // prideti printeri, patikrint if source atmintis
+  // galima tiesiai cia printint
+  // cikla is VM perkelt i RM
+
   private void writeWord(int storageType, int blockIndex, Word data) {
     switch (storageType) {
       case 1 -> userMemory.writeWord(blockIndex, 0, data);

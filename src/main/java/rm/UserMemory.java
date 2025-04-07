@@ -33,7 +33,7 @@ public class UserMemory {
   }
 
   // Gauti vieną žodį pagal bloką ir jo vietą bloke
-  public Word getWord(int blockIndex, int wordIndex) {
+  public Word getWord(int blockIndex, int wordIndex) { // NAUDOT PTR
     if (blockIndex < 0 || blockIndex >= TOTAL_BLOCKS || wordIndex < 0 || wordIndex >= BLOCK_SIZE) {
       throw new IllegalArgumentException("Neteisingas adresas: bloko " + blockIndex + ", žodžio " + wordIndex);
     }

@@ -2,7 +2,7 @@ package rm;
 
 import java.util.Arrays;
 
-public class Word {
+public class Word { // pakeist i char[] vietoj word
   private char[] word;
 
   public Word(String data){

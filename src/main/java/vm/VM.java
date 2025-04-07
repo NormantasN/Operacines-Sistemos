@@ -37,6 +37,7 @@ public class VM {
      *   <Kodo segmentas>
      *   HALT
      */
+    // VM dirba su virtualia atmintim
     public void Execute(String filename) {
         try {
             List<String> lines = Files.readAllLines(Paths.get(filename));
@@ -118,11 +119,12 @@ public class VM {
      */
     private void Commands(List<String> instructions) {
         int pc = 0; // Program counteris
-        while (pc < instructions.size()) {
+        while (pc < instructions.size()) { // Negali but WHILe vm turi but realioj masinoj, RM ivykdo viena komanda ir patikrina ar reikia executint, nustatom timeri, suziurim si ti pi, vm gali nustatyt jiem reiksmes, bet daugiau nieko
             String instr = instructions.get(pc);
             System.out.println("Executing: " + instr);
             if (instr.equalsIgnoreCase("HALT")) {
                 System.out.println("HALT encountered. Ending current program execution.");
+                // NUSTATYT SI, pagal dokumentacija
                 break;
             } else if (instr.startsWith("LW")) {
                 // LWxx: įkelia žodį iš atminties adresu (16*x1+x2) į AX
@@ -174,10 +176,10 @@ public class VM {
             } else if (instr.startsWith("JM")) {
                 // JMxx: nustato komandos skaitliuką į adresą (16*x1+x2).
                 String addrStr = instr.substring(2);
-                int jumpAddress = Integer.parseInt(addrStr, 16);
+                short jumpAddress = Short.parseShort(addrStr, 16);
                 if (jumpAddress < instructions.size()) {
                     System.out.println("JM: Jumping to instruction index " + jumpAddress);
-                    pc = jumpAddress;
+                    RM.IC = jumpAddress;   // REALIOJ MASINOJ turi but
                     continue;
                 } else {
                     System.out.println("JM: Jump address out of range. Ignoring jump.");
@@ -191,7 +193,7 @@ public class VM {
                 for (Word w : blockWords) {
                     sb.append(w.toString()).append(" ");
                 }
-                RM.printer.print(sb.toString());
+                RM.printer.print(sb.toString()); // VIrtuali masina tiktai SI nustato ir reali masina pamato kad SI = 3 ir isspausdina per printeri, iskvietus kanalo irengini, kuris pradeada spausdinima, reikia paduot pradzia, apie printeri ir flashiuka zino RM bet NE VM
             } else {
                 System.out.println("Unknown instruction: " + instr);
             }

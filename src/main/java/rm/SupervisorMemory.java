@@ -3,8 +3,12 @@ package rm;
 public class SupervisorMemory {
   private static final int BLOCK_SIZE = 16;
   private static final int TOTAL_BLOCKS = 16;
-  private Word[][] memory;
-
+  private Word[][] memory;      // turi but vienas memory, kuris padalintas i kelias dalis, pvz
+    // new byte[10000] cia yra new ram
+  // saugoti laisvus puslapius 2 java sarasuose new block arba new integer, kad issaugoti blokus kurie laisvi kurie uzimti REALIOJ MASINOJ
+  // viena klase memory, kuria naudot visom memory ir apsirasyt adresus kaip konstantas
+  // pasirasyt kurie konvertuoja memory nuo kurios vietos prasideda ir sugrazint zodi
+  //
   public SupervisorMemory() {
     memory = new Word[TOTAL_BLOCKS][BLOCK_SIZE];
     for (int i = 0; i < TOTAL_BLOCKS; i++) {

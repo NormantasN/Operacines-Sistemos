@@ -3,7 +3,7 @@ package rm;
 public class HDD {
   private static final int BLOCK_SIZE = 16; // Kiekvienas blokas turi 16 žodžių
   private static final int TOTAL_BLOCKS = 34; // Išorinė atmintis užima 34 blokus
-  private Word[][] storage;
+  private Word[][] storage;     // filename paties HDD.txt, kopijavimas is i
 
   public HDD() {
     storage = new Word[TOTAL_BLOCKS][BLOCK_SIZE];
