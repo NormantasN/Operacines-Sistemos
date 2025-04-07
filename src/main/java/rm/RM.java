@@ -23,7 +23,7 @@ public class RM {
   public static SharedMemory sharedMemory;
   public static Printer printer;
   public static HDD hdd;
-//  public static Flash flash;
+  public static FlashMemory flash;
 
   static{
     try{
@@ -32,6 +32,7 @@ public class RM {
       sharedMemory = new SharedMemory();
       hdd = new HDD();
       printer = new Printer();
+      flash = new FlashMemory();
     }
     catch (Exception e){
       e.printStackTrace();
@@ -48,10 +49,6 @@ public class RM {
       rm = new RM();
     }
     return rm;
-  }
-
-  public void load(){
-
   }
 
 
