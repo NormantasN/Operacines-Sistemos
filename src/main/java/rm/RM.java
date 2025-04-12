@@ -18,21 +18,19 @@ public class RM {
   public static byte C; // 1 bitas zero flag (ZF), 2 bitas sign flag (SF), 3 bitas overflow flag(OF)
 
   // -- RM KOMPONENTES
-  public static UserMemory memory;
-  public static SupervisorMemory superMemory;
-  public static SharedMemory sharedMemory;
+  public static Memory memory;
   public static Printer printer;
   public static HDD hdd;
   public static FlashMemory flash;
+  public static Channel channel;
 
   static{
     try{
-      memory = new UserMemory();
-      superMemory = new SupervisorMemory();
-      sharedMemory = new SharedMemory();
+      memory = new Memory();
       hdd = new HDD();
-      printer = new Printer();
       flash = new FlashMemory();
+      printer = new Printer();
+      channel = new Channel(memory, hdd, flash, printer);
     }
     catch (Exception e){
       e.printStackTrace();

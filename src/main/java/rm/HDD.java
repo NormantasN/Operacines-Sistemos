@@ -1,48 +1,65 @@
 package rm;
 
+import java.io.*;
+import java.util.*;
+
 public class HDD {
-  private static final int BLOCK_SIZE = 16; // Kiekvienas blokas turi 16 žodžių
-  private static final int TOTAL_BLOCKS = 34; // Išorinė atmintis užima 34 blokus
-  private Word[][] storage;     // filename paties HDD.txt, kopijavimas is i
+  private static final String HDD_FILE = "hdd.txt";
 
-  public HDD() {
-    storage = new Word[TOTAL_BLOCKS][BLOCK_SIZE];
+  // Įrašo programą į HDD failą (jei tokia jau yra – perrašo)
+  public void saveProgram(String name, List<Word> program) {
+    Map<String, List<Word>> allPrograms = loadAllPrograms();
+    allPrograms.put(name, program);
+    writeAllPrograms(allPrograms);
+  }
 
-    // Inicializuojame visus blokus tuščiais žodžiais
-    for (int i = 0; i < TOTAL_BLOCKS; i++) {
-      for (int j = 0; j < BLOCK_SIZE; j++) {
-        storage[i][j] = new Word("0000");
+  // Nuskaito visas programas
+  public Map<String, List<Word>> loadAllPrograms() {
+    Map<String, List<Word>> programs = new LinkedHashMap<>();
+    try (BufferedReader reader = new BufferedReader(new FileReader(HDD_FILE))) {
+      String line;
+      String currentName = null;
+      List<Word> currentProgram = new ArrayList<>();
+
+      while ((line = reader.readLine()) != null) {
+        if (line.startsWith("#")) {
+          if (currentName != null && !currentProgram.isEmpty()) {
+            programs.put(currentName, new ArrayList<>(currentProgram));
+          }
+          currentName = line.substring(1).trim();
+          currentProgram.clear();
+        } else if (!line.isEmpty()) {
+          currentProgram.add(new Word(line.trim()));
+        }
       }
+
+      if (currentName != null && !currentProgram.isEmpty()) {
+        programs.put(currentName, currentProgram);
+      }
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return programs;
+  }
+
+  private void writeAllPrograms(Map<String, List<Word>> programs) {
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(HDD_FILE))) {
+      for (Map.Entry<String, List<Word>> entry : programs.entrySet()) {
+        writer.write("#" + entry.getKey());
+        writer.newLine();
+        for (Word word : entry.getValue()) {
+          writer.write(word.toString());
+          writer.newLine();
+        }
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
     }
   }
 
-  // Rašymas į diską
-  public void writeWord(int blockIndex, int wordIndex, Word data) {
-    if (isValidAddress(blockIndex, wordIndex)) {
-      storage[blockIndex][wordIndex] = data;
-    } else {
-      throw new IllegalArgumentException("Netinkamas HDD adresas.");
-    }
-  }
-
-  // Skaitymas iš disko
-  public Word readWord(int blockIndex, int wordIndex) {
-    if (isValidAddress(blockIndex, wordIndex)) {
-      return storage[blockIndex][wordIndex];
-    }
-    throw new IllegalArgumentException("Netinkamas HDD adresas.");
-  }
-
-  // Gauti visą bloką
-  public Word[] getBlock(int blockIndex) {
-    if (blockIndex < 0 || blockIndex >= TOTAL_BLOCKS) {
-      throw new IllegalArgumentException("Netinkamas HDD bloko indeksas.");
-    }
-    return storage[blockIndex];
-  }
-
-  private boolean isValidAddress(int blockIndex, int wordIndex) {
-    return blockIndex >= 0 && blockIndex < TOTAL_BLOCKS &&
-        wordIndex >= 0 && wordIndex < BLOCK_SIZE;
+  public List<Word> getProgram(String name) {
+    Map<String, List<Word>> all = loadAllPrograms();
+    return all.getOrDefault(name, new ArrayList<>());
   }
 }

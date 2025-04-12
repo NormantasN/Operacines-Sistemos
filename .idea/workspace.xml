@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bb19199-23ae-4344-9578-9da6641ec8d7" name="Changes" comment="Add flash memory">
+    <list default="true" id="8bb19199-23ae-4344-9578-9da6641ec8d7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Flash.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rm/Channel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rm/Channel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rm/FlashMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rm/FlashMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rm/HDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rm/HDD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rm/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rm/Printer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rm/SupervisorMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rm/SupervisorMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rm/UserMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rm/UserMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rm/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rm/Word.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vm/VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vm/VM.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +102,8 @@
       <workItem from="1744016607885" duration="31000" />
       <workItem from="1744023504339" duration="183000" />
       <workItem from="1744025117191" duration="3697000" />
+      <workItem from="1744117415690" duration="51000" />
+      <workItem from="1744450459495" duration="4728000" />
     </task>
     <task id="LOCAL-00001" summary="Prideti RM komponentai">
       <option name="closed" value="true" />
