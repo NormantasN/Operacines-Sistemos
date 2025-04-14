@@ -3,28 +3,28 @@ package rm;
 import java.util.Arrays;
 
 public class Word {
-  public char[] word = new char[4];
+    public char[] word = new char[4];
 
-  public Word(String data){
-    if(data == null || data.length() != 4){
-      throw new IllegalArgumentException("Zodis turi buti 4 baitu ilgio");
+    public Word(String data){
+        if(data == null || data.length() != 4){
+            throw new IllegalArgumentException("Zodis turi buti 4 baitu ilgio");
+        }
+        word = data.toCharArray();
     }
-    word = data.toCharArray();
-  }
 
-  public Word(char[] data){
-    if(data == null || data.length != 4){
-      throw new IllegalArgumentException("Zodis turi buti 4 baitu ilgio");
+    public Word(char[] data){
+        if(data == null || data.length != 4){
+            throw new IllegalArgumentException("Zodis turi buti 4 baitu ilgio");
+        }
+        word = data.clone();
     }
-    word = data.clone();
-  }
 
-  public char getByte(int index){
-    return word[index];
-  }
+    public char getByte(int index){
+        return word[index];
+    }
 
-  @Override
-  public String toString() {
-    return Arrays.toString(word);
-  }
+    @Override
+    public String toString() {
+        return Arrays.toString(word);
+    }
 }

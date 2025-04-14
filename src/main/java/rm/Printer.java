@@ -18,26 +18,26 @@
 package rm;
 
 public class Printer {
-  public static void printBlock(Memory memory, int blockIndex) {
-    System.out.println("Spausdintuvas (blokas " + blockIndex + "):");
-    try {
-      Word[] block = memory.getBlock(blockIndex);
-      for (int i = 0; i < block.length; i++) {
-        System.out.printf("[%02d] %s\n", i, block[i]);
-      }
-    } catch (IllegalArgumentException e) {
-      System.out.println("Klaida: negalima nuskaityti bloko – " + e.getMessage());
+    public static void printBlock(Memory memory, int blockIndex) {
+        System.out.println("Spausdintuvas (blokas " + blockIndex + "):");
+        try {
+            Word[] block = memory.getBlock(blockIndex);
+            for (int i = 0; i < block.length; i++) {
+                System.out.printf("[%02d] %s\n", i, block[i]);
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("Klaida: negalima nuskaityti bloko – " + e.getMessage());
+        }
     }
-  }
 
-  public static void printWord(Memory memory, int blockIndex, int offset) {
-    System.out.println("Spausdintuvas (blokas " + blockIndex + ", pozicija " + offset + "):");
-    try {
-      Word word = memory.read(blockIndex, offset);
-      System.out.println(word);
-    } catch (IllegalArgumentException e) {
-      System.out.println("Klaida: negalima nuskaityti žodžio – " + e.getMessage());
+    public static void printWord(Memory memory, int blockIndex, int offset) {
+        System.out.println("Spausdintuvas (blokas " + blockIndex + ", pozicija " + offset + "):");
+        try {
+            Word word = memory.read(blockIndex, offset);
+            System.out.println(word);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Klaida: negalima nuskaityti žodžio – " + e.getMessage());
+        }
     }
-  }
 }
 
