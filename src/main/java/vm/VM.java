@@ -55,6 +55,9 @@ public class VM {
             int block = address / RM.memory.BLOCK_SIZE;
             int offset = address % RM.memory.BLOCK_SIZE;
             Word w = RM.memory.read(block, offset);
+
+            System.out.println("wordToInt bando konvertuoti: " + w);
+
             RM.AX = wordToInt(w);
             System.out.println("LW: AX <- " + RM.AX);
         } else if (line.startsWith("LS")) {
@@ -108,9 +111,15 @@ public class VM {
     }
 
     private int wordToInt(Word w) {
-        String s = w.toString().replaceAll("[\\[\\]\\,\\s]", "");
-        return Integer.parseInt(s, 16);
+        try {
+            return Integer.parseInt(w.toString().trim(), 16);
+        } catch (NumberFormatException e) {
+            System.err.println("Klaida: wordToInt negali konvertuoti '" + w.toString() + "'");
+            RM.setPI((byte) 2);
+            return 0;
+        }
     }
+
 
     private String intToHex(int value) {
         return String.format("%04X", value & 0xFFFF);

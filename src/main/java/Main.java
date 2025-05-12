@@ -9,7 +9,7 @@ public class Main {
         boolean exit = false;
         boolean stepMode = false;
         VM vm = new VM();  // Sukuriama virtuali mašina.
-
+//jJei gu reikia isvesti meniu
         while (!exit) {
             System.out.println("\n===== Mini Menu =====");
             System.out.println("1. Įmontuoti flash");
@@ -17,6 +17,7 @@ public class Main {
             System.out.println("3. Įkelti programą iš failo į atmintį");
             System.out.println("4. Vykdyti programos instrukcijas");
             System.out.println("5. Išeiti");
+            System.out.println("6. Vykdyti visas programas");
             System.out.print("Pasirinkite veiksmą: ");
             String choice = scanner.nextLine().trim();
 
@@ -45,6 +46,9 @@ public class Main {
                 case "5":
                     exit = true;
                     System.out.println("Išeinama iš programos.");
+                    break;
+                case "6":
+                    rm.loadAndRunAllPrograms();
                     break;
                 default:
                     System.out.println("Neteisingas pasirinkimas. Bandykite dar kartą.");

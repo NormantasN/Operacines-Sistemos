@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 public class FlashMemory {
-    private static final String FLASH_FILE = "src/flash.txt";
+    private static final String FLASH_FILE = "Flash.txt";
     private static final int BLOCK_SIZE = 16;
     private static final int TOTAL_BLOCKS = 16;
 
@@ -34,8 +34,13 @@ public class FlashMemory {
                 } else {
                     // Jei DATA – įrašom kaip yra
                     if (!isCodeSection && line.matches("[0-9A-Fa-f]{2}\\s[0-9A-Fa-f]{4}")) {
-                        currentProgram.add(new Word(line.replace(" ", ""))); // pvz., "04 0001" → "040001"
+                        // Splitinam į dvi dalis
+                        String[] parts = line.split("\\s+");
+                        String address = String.format("%02X", Integer.parseInt(parts[0], 16));
+                        String value = String.format("%04X", Integer.parseInt(parts[1], 16));
+                        currentProgram.add(new Word(value.substring(0, 4))); // tik įrašo reikšmę
                     }
+
                     // Jei CODE – komandos
                     else if (isCodeSection) {
                         currentProgram.add(new Word(line));

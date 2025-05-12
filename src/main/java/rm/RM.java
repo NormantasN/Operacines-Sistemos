@@ -1,8 +1,12 @@
 package rm;
 
+import vm.VM;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 public class RM {
     public static RM rm;
@@ -47,6 +51,68 @@ public class RM {
         return rm;
     }
 
+    public static int getPI() {
+        return PI;
+    }
+
+    public static int getSI() {
+        return SI;
+    }
+
+    public static int getTI() {
+        return TI;
+    }
+
+    public static int getC() {
+        return C;
+    }
+
+
+    ///------------------------------------------------------
+public void loadAndRunAllPrograms() {
+    Map<String, List<Word>> allPrograms = hdd.loadAllPrograms();
+
+    for (Map.Entry<String, List<Word>> entry : allPrograms.entrySet()) {
+        String programName = entry.getKey();
+        List<Word> code = entry.getValue();
+        System.out.println("\n=== Vykdoma programa: " + programName + " ===");
+
+        // 1. Išvalom atmintį
+        clearSupervisorMemory();
+
+        // 2. Įkraunam kodą
+        int currentBlock = 0;
+        int currentOffset = 0;
+        memory.usedCODEBlocks = 0;
+        for (Word w : code) {
+            memory.write(currentBlock, currentOffset, w);
+            currentOffset++;
+            if (currentOffset == Memory.BLOCK_SIZE) {
+                currentOffset = 0;
+                currentBlock++;
+            }
+        }
+        memory.usedCODEBlocks = currentBlock;
+
+        // 3. Paleidžiam VM
+        VM vm = new VM();
+        while (vm.executeInstruction()) {
+            // Žingsninis režimas valdomas VM viduje
+        }
+
+        // 4. Apdorojam SI/PI/TI/C pertraukas
+        processDevices();
+    }
+}
+    private void clearSupervisorMemory() {
+        for (int block = Memory.SUPERVISOR_START; block <= Memory.SUPERVISOR_END; block++) {
+            for (int i = 0; i < Memory.BLOCK_SIZE; i++) {
+                memory.write(block, i, new Word("0000"));
+            }
+        }
+    }
+
+///------------------------------------------------------
     /**
      * loadProgramFromFile() skaito failą (pvz., HDD.txt) ir įrašo kiekvieną eilutę (4 simbolių instrukciją)
      * į RM.memory pradedant nuo bloko 0.
@@ -56,16 +122,26 @@ public class RM {
             String line;
             int currentBlock = 0;
             int currentOffset = 0;
-            memory.usedCODEBlocks = 0; // Išvalome kodo blokų skaičių
+            boolean isCode = false;
+            memory.usedCODEBlocks = 0;
+
             while ((line = reader.readLine()) != null) {
                 line = line.trim();
                 if (line.isEmpty()) continue;
-                // Užtikriname, kad instrukcija yra būtent 4 simbolių ilgio
+
+                if (line.equalsIgnoreCase("CODE")) {
+                    isCode = true;
+                    continue;
+                }
+
+                if (!isCode || line.startsWith("#")) continue;
+
                 if (line.length() < 4) {
                     line = String.format("%-4s", line);
                 } else if (line.length() > 4) {
                     line = line.substring(0, 4);
                 }
+
                 Word w = new Word(line);
                 memory.write(currentBlock, currentOffset, w);
                 currentOffset++;
@@ -74,6 +150,7 @@ public class RM {
                     currentBlock++;
                 }
             }
+
             memory.usedCODEBlocks = currentBlock;
             System.out.println("Programos instrukcijos įkrautos į atmintį. Naudojami blokai: " + memory.usedCODEBlocks);
         } catch (IOException e) {

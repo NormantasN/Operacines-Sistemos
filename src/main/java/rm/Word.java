@@ -25,6 +25,6 @@ public class Word {
 
     @Override
     public String toString() {
-        return Arrays.toString(word);
+        return new String(word);
     }
 }
