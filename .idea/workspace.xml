@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bb19199-23ae-4344-9578-9da6641ec8d7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="8bb19199-23ae-4344-9578-9da6641ec8d7" name="Changes" comment="4pradzia reik kazka pakeist nzn ka">
+      <change afterPath="$PROJECT_DIR$/src/main/java/resources/ExecuteFlagResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resources/MOSproc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resources/PageTableResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resources/SupervMemoryblockResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Flash.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Flash.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HDD.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HDD.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rm/FlashMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rm/FlashMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rm/RM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rm/RM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rm/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rm/Word.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vm/VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vm/VM.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +58,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.sourceCode",
     "vue.rearranger.settings.migration": "true"
   }
@@ -111,7 +108,8 @@
       <workItem from="1744025117191" duration="3697000" />
       <workItem from="1744117415690" duration="51000" />
       <workItem from="1744450459495" duration="4728000" />
-      <workItem from="1747058143226" duration="2797000" />
+      <workItem from="1747058143226" duration="2833000" />
+      <workItem from="1747498352734" duration="4308000" />
     </task>
     <task id="LOCAL-00001" summary="Prideti RM komponentai">
       <option name="closed" value="true" />
@@ -129,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1744009250715</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="4pradzia reik kazka pakeist nzn ka">
+      <option name="closed" value="true" />
+      <created>1747060968668</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1747060968668</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +143,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Prideti RM komponentai" />
     <MESSAGE value="Add flash memory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add flash memory" />
+    <MESSAGE value="4pradzia reik kazka pakeist nzn ka" />
+    <option name="LAST_COMMIT_MESSAGE" value="4pradzia reik kazka pakeist nzn ka" />
   </component>
 </project>
