@@ -16,11 +16,11 @@ public class StartStop extends Process {
 
     @Override
     public void execute() {
-        Logger.log("Executing process: " + this);
+        //Logger.log("Executing process: " + this);
 
         switch (step) {
             case 1:
-                Logger.log("[StartStop] Creating system resources");
+                //Logger.log("[StartStop] Sukuriam resources");
                 kernel.createResource(this, new ExecuteFlagResource());
                 kernel.createResource(this, new ResultResource());
                 kernel.createResource(this, new MOSproc());
@@ -35,7 +35,7 @@ public class StartStop extends Process {
                 break;
 
             case 2:
-                Logger.log("[StartStop] Creating system processes");
+                //Logger.log("[StartStop] Sukuriam processes");
                 kernel.createProcess(this, new MainProc());
                 kernel.createProcess(this, new MemoryGovernor());
                 kernel.createProcess(this, new Interrupt());
@@ -45,12 +45,12 @@ public class StartStop extends Process {
                 break;
 
             case 3:
-                Logger.log("[StartStop] Blocking until MOS shutdown");
-                kernel.requestResource(this, "MOS_PABAIGA");
+                //Logger.log("[StartStop] Blocking until MOS shutdown");
+                kernel.requestResource(this, "MOSproc");
                 break;
 
             default:
-                Logger.log("[StartStop] Invalid step: " + step);
+                //Logger.log("[StartStop] Invalid step: " + step);
         }
     }
 }

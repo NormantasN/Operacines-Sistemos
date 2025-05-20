@@ -8,7 +8,7 @@ public class InterruptResource extends Resource {
 
     public InterruptResource() {
         this.rIDI = "InterruptResource";
-        //this.reusable = false;
+
     }
 
     public InterruptResource(String type, int value) {
