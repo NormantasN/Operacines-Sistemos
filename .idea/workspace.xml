@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bb19199-23ae-4344-9578-9da6641ec8d7" name="Changes" comment="4pradzia reik kazka pakeist nzn ka">
+      <change afterPath="$PROJECT_DIR$/src/main/java/resources/FlashCopyResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/processes/Interrupt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/processes/Interrupt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/processes/JobGovernor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/processes/JobGovernor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/processes/StartStop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/processes/StartStop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resources/InterruptResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/InterruptResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/Process.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/processes/VirtualMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/processes/VirtualMachine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

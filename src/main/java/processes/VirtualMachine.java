@@ -6,16 +6,22 @@ import rm.*;
 public class VirtualMachine extends Process {
 
     protected int priority = 93;
-    public VirtualMachin(){
+    public VirtualMachine(){
         this.pID = "VirtualMachine";
         this.priority = 93;
     }
+
+    @Override
+    public void execute() {
+
+    }
+
     private boolean stepMode = false;
     private int pc = 0; // Programos skaitliukas (PC) – rodo, kuri instrukcija turi būti vykdyta
 
-    public VirtualMachine() {
-        System.out.println("VM inicializuota. PC = 0");
-    }
+//    public VirtualMachine() {
+//        System.out.println("VM inicializuota. PC = 0");
+//    }
 
     public void setStepMode(boolean mode) {
         this.stepMode = mode;

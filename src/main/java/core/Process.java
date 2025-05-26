@@ -179,6 +179,6 @@ public abstract class Process implements Comparable{
 
     @Override
     public int compareTo(Object o) {
-        return ((Integer)(((Process) o).priority)).compareTo(((Integer)this.priority));
+        return Integer.compare((((Process) o).priority), this.priority);
     }
 }
